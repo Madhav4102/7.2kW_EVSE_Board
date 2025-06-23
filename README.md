@@ -130,6 +130,5 @@ This project is open for educational and non-commercial use. Contact the author 
 ## Author
 **Madhav Maheshwari**
 
-If you need help integrating firmware or customizing the design, feel free to reach out!
 
 
