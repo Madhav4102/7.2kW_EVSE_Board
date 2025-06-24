@@ -32,7 +32,7 @@ This project is a custom-designed Single-Phase 7.2kW EVSE (Electric Vehicle Supp
 ---
 
 ### 2. **ADE7953 - Energy Metering IC**
-- Provides **accurate measurement** using integrated **sigma-delta ADCs ** of:
+- Provides **accurate measurement** of the following using integrated sigma-delta ADCs:
   - Voltage
   - Current
   - Active and reactive power
