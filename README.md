@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment) control board built around the **STM32F401** microcontroller. The board integrates advanced energy metering, EV-specific safety mechanisms, communication expansion headers, and an isolated power supply, forming a complete and scalable EVSE solution.
+This project is a custom-designed Single-Phase 7.2kW EVSE (Electric Vehicle Supply Equipment) control board built around the **STM32F401** microcontroller. The board integrates advanced energy metering, EV-specific safety mechanisms, communication expansion headers, and an isolated power supply, forming a complete and scalable EVSE solution.
 
 ---
 
@@ -25,14 +25,14 @@ This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment)
 - Interfaces with:
   - ADE7953 for metering data (SPI)
   - AFE3010 for fault monitoring (analog/digital lines)
-  - External modules via USART headers
+  - External modules via USART headers allows for further expansion in future with a communication board.
   - Optional SPI TFT display for GUI
 - Manages control logic, user interface, charging session state, and error handling.
 
 ---
 
 ### 2. **ADE7953 - Energy Metering IC**
-- Provides **accurate measurement** of:
+- Provides **accurate measurement** using integrated **sigma-delta ADCs ** of:
   - Voltage
   - Current
   - Active and reactive power
@@ -50,7 +50,7 @@ This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment)
 - Critical for:
   - Detecting AC/DC leakage
   - Complying with IEC 62752 standard for EVSE
-- Output is read by the MCU for system protection and shutdown triggers.
+- The ALARM pin of the IC is connected to the MCU, which can be programmed to react to a fault condition accordingly.
 
 ---
 
@@ -58,6 +58,8 @@ This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment)
 - High-current **7.2kW capable relay** for connecting/disconnecting the vehicle from the mains supply.
 - Controlled via a relay driver circuit by the STM32.
 - Provides galvanic isolation and compliance with safety regulations for EV charging.
+- Capable of 50k cycles and compatible with CC2 standards.
+- 3PST Relay
 
 ---
 
@@ -67,7 +69,7 @@ This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment)
 - Features:
   - High efficiency
   - Integrated feedback and switching
-  - Output rails for both **5V and 3.3V**
+  - Provides -14,+14 and 5V output rails.
 
 ---
 
@@ -81,10 +83,20 @@ This project is a custom-designed 7.2kW EVSE (Electric Vehicle Supply Equipment)
 
 ---
 
+### 7. **Control Pilot Signal Generation**
+- The board has a dedicated control pilot output terminal for communication with vehicle.
+- Designed in compliance with SAE J1772 Standard.
+- Components used in Control Pilot Circuit:
+  - TLV1805DBVR Rail to Rail Opamp
+  - Seperate Detection Circuit to allow for CP line voltage detection by MCU.
+  - SMAJ14CA Voltage Suppressor.
+
+---
+
 ## Expansion & Applications
 
 This board is modular and can be extended for:
-- **Smart EVSE implementations** (OCPP/LoRa/WiFi)
+- **Smart EVSE implementations**
 - **Home automation systems**
 - **Commercial charging stations**
 - **Portable EV charging solutions**
