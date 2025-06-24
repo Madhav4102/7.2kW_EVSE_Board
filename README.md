@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a custom-designed Single-Phase 7.2kW EVSE (Electric Vehicle Supply Equipment) control board built around the **STM32F401** microcontroller. The board integrates advanced energy metering, EV-specific safety mechanisms, communication expansion headers, and an isolated power supply, forming a complete and scalable EVSE solution.
+This project is a custom-designed Single-Phase 7.2kW EVSE (Electric Vehicle Supply Equipment) control board built around the **STM32F401** microcontroller. It is designed for a mains supply of 90-290VAC .The board integrates advanced energy metering, EV-specific safety mechanisms, communication expansion headers, and an isolated power supply, forming a complete and scalable EVSE solution.
 
 ---
 
